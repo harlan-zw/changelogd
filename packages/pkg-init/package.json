@@ -1,0 +1,50 @@
+{
+  "name": "pkg-init",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@7.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/harlan-zw/pkg-init#readme",
+  "bugs": {
+    "url": "https://github.com/harlan-zw/pkg-init/issues"
+  },
+  "license": "MIT",
+  "author": "Harlan Wilton <harlan@harlanzw.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harlan-zw/pkg-init.git"
+  },
+  "funding": "https://github.com/sponsors/harlan-zw",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp --commit --push --tag && npm publish",
+    "start": "esmo src/index.ts",
+    "test": "vitest"
+  }
+}
