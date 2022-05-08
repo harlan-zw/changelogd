@@ -11,7 +11,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "pkg-init": ["./packages/pkg-init/src"]
+      "changelogd": ["./packages/changelogd"],
+      "@changelogd/core": ["./packages/core/src"],
+      "@changelogd/cli": ["./packages/cli/src"]
     },
     "types": [
       "vitest",

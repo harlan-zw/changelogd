@@ -6,6 +6,7 @@ on:
       - 'v*'
 
 jobs:
+
   release:
     runs-on: ubuntu-latest
     steps:
@@ -21,16 +22,22 @@ jobs:
         with:
           node-version: 16.x
 
-      - run: npx conventional-github-releaser -p angular
-        continue-on-error: false
-        env:
-          CONVENTIONAL_GITHUB_RELEASER_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
       - name: Install Dependencies
         run: pnpm install
 
       - name: PNPM build
         run: pnpm run build
+
+      - name: Release Notes
+        run: npx changelogen@latest > ${{ github.workspace }}-CHANGELOG.md
+
+      - name: Trim Release Notes and debug
+        run: sed -i '1d;2d' ${{ github.workspace }}-CHANGELOG.md && cat ${{ github.workspace }}-CHANGELOG.md
+
+      - name: Push release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: ${{ github.workspace }}-CHANGELOG.md
 
       - name: Publish to NPM
         run: pnpm -r publish --access public --no-git-checks

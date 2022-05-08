@@ -1,17 +1,16 @@
-<h1 align='center'>pkg-init</h1>
+<h1 align='center'>🪵 changelogd</h1>
 
 <p align="center">
-<a href='https://github.com/harlan-zw/pkg-init/actions/workflows/ci.yml'>
-<img src='https://github.com/harlan-zw/pkg-init/actions/workflows/ci.yml/badge.svg' >
+<a href='https://github.com/harlan-zw/changelogd/actions/workflows/ci.yml'>
+<img src='https://github.com/harlan-zw/changelogd/actions/workflows/ci.yml/badge.svg' >
 </a>
-<a href="https://www.npmjs.com/package/pkg-name" target="__blank"><img src="https://img.shields.io/npm/v/pkg-name?color=2B90B6&label=" alt="NPM version"></a>
-<a href="https://www.npmjs.com/package/pkg-name" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/pkg-name?color=349dbe&label="></a>
+<a href="https://www.npmjs.com/package/changelogd" target="__blank"><img src="https://img.shields.io/npm/v/changelogd?color=2B90B6&label=" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/changelogd" target="__blank"><img alt="NPM Downloads" src="https://img.shields.io/npm/dm/changelogd?color=349dbe&label="></a>
 <br>
 </p>
 
-
 <p align="center">
-Flexible package template based on <a href="https://github.com/antfu/starter-ts">starter-ts</a> for monorepos.
+Aggressively find a packages changelog between versions.
 </p>
 
 <p align="center">
@@ -30,8 +29,28 @@ Flexible package template based on <a href="https://github.com/antfu/starter-ts"
 
 ## Features
 
-- 🦭 Monorepo design, keep build dependencies far away from your package dependencies.
-- ✨ Based on <a href="https://github.com/antfu/starter-ts">starter-ts</a>: [unbuild](https://github.com/unjs/unbuild), [vitest](https://github.com/vitest-dev/vitest), [pnpm@7](https://github.com/pnpm/pnpm), etc
+- 🌳 Opportunistic API with 3 resolvers (`npm-changelog`, `gituhb-changelog`, `github-releases`)
+- 🦭 Provide a diff of CHANGELOG's between versions, if found  
+- 🐱 Otherwise, fetch release notes straight from Github
+- 📦 Minimal network requests with caching enabled
+
+## CLI Usage
+
+```sh
+npx changelogd@latest <package> --from=<version> [--to=<version>]
+```
+
+**Arguments:**
+
+- `package`: Package name to use. Should be the same as the package.json's name (NPM).
+- `from`: The release tag to read from.
+- `to`: The release tag to read to. **Default**: `latest`
+
+### Example
+
+```sh
+npx changelogd@latest @antfu/eslint-config --from 0.20.0
+```
 
 
 ## Sponsors

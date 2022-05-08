@@ -1,19 +1,20 @@
 {
-  "name": "pkg-init",
+  "name": "@changelogd/core",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@7.0.0",
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/harlan-zw/pkg-init#readme",
+  "homepage": "https://github.com/harlan-zw/changelogd#readme",
   "bugs": {
-    "url": "https://github.com/harlan-zw/pkg-init/issues"
+    "url": "https://github.com/harlan-zw/changelogd/issues"
   },
   "license": "MIT",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/harlan-zw/pkg-init.git"
+    "url": "git+https://github.com/harlan-zw/changelogd.git",
+    "directory": "packages/core"
   },
   "funding": "https://github.com/sponsors/harlan-zw",
   "main": "./dist/index.mjs",
@@ -40,11 +41,17 @@
   "sideEffects": false,
   "scripts": {
     "build": "unbuild",
-    "dev": "unbuild --stub",
-    "lint": "eslint .",
-    "prepublishOnly": "nr build",
-    "release": "bumpp --commit --push --tag && npm publish",
-    "start": "esmo src/index.ts",
-    "test": "vitest"
+    "dev": "unbuild --stub"
+  },
+  "dependencies": {
+    "consola": "^2.15.3",
+    "diff": "^5.0.0",
+    "ohmyfetch": "^0.4.16",
+    "semver": "^7.3.7",
+    "unstorage": "^0.4.1"
+  },
+  "devDependencies": {
+    "@types/diff": "^5.0.2",
+    "@types/semver": "^7.3.9"
   }
 }

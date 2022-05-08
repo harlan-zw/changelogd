@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**/README.md'
 
   pull_request:
     branches:
@@ -28,14 +30,21 @@ jobs:
         run: pnpm i
 
       - name: Lint
-        run: pnpm lint:check
+        run: pnpm lint
+
+      - name: Commit
+        uses: EndBug/add-and-commit@v4
+        with:
+          message: 'chore: lint'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node: [16.x]
+        node: [14.x, 16.x]
         os: [ubuntu-latest]
       #        node: [14.x, 16.x]
       #        os: [ubuntu-latest, windows-latest, macos-latest]

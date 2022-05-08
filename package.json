@@ -1,27 +1,30 @@
 {
-  "name": "pkg-init-monorepo",
+  "name": "changelogd-monorepo",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@7.0.0",
   "scripts": {
+    "cli": "jiti ./packages/cli/src/index.ts",
     "build": "pnpm -r --parallel --filter=./packages/** run build",
     "dev": "pnpm -r --parallel --filter=./packages/** run dev",
     "lint": "eslint . --fix",
     "lint:check": "eslint .",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag",
-    "test": "pnpm -r --parallel --filter=./packages/** run test"
+    "test": "vitest"
+  },
+  "dependencies": {
+    "changelogen": "^0.0.5",
+    "jiti": "^1.13.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.23.0",
     "@types/node": "^17.0.31",
     "bumpp": "^7.1.1",
     "eslint": "^8.15.0",
-    "esmo": "^0.14.1",
-    "pnpm": "^7.0.0",
-    "rimraf": "^3.0.2",
+    "pnpm": "^7.0.1",
     "typescript": "^4.6.4",
     "unbuild": "^0.7.4",
     "vite": "^2.9.8",
-    "vitest": "^0.10.5"
+    "vitest": "^0.11.0"
   }
 }
