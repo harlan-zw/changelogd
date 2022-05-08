@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-Aggressively find a packages changelog between versions.
+Aggressively find a packages changelog (or releases) between versions.
 </p>
 
 <p align="center">
