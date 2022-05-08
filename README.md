@@ -29,7 +29,7 @@ Aggressively find a packages changelog (or releases) between versions.
 
 ## Features
 
-- 🌳 Opportunistic API with 3 resolvers (`npm-changelog`, `gituhb-changelog`, `github-releases`)
+- 🌳 Opportunistic API, multiple resolvers: `npm-changelog`, `github-changelog`, `github-releases`
 - 🦭 Provide a diff of CHANGELOG's between versions, if found  
 - 🐱 Otherwise, fetch release notes straight from Github
 - 📦 Minimal network requests with caching enabled
