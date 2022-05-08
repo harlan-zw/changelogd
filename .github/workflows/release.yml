@@ -21,12 +21,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
+          cache: pnpm
 
       - name: Install Dependencies
         run: pnpm install
 
       - name: PNPM build
         run: pnpm run build
+
+      - name: Publish to NPM
+        run: pnpm -r publish --access public --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Release Notes
         run: npx changelogen@latest > ${{ github.workspace }}-CHANGELOG.md
@@ -38,8 +44,3 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           body_path: ${{ github.workspace }}-CHANGELOG.md
-
-      - name: Publish to NPM
-        run: pnpm -r publish --access public --no-git-checks
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
