@@ -58,7 +58,7 @@ describe('fetch changelog', () => {
     `)
   })
 
-  it.only('execa', async () => {
+  it('execa', async () => {
     const diff = await changelogd('execa', '6.0.0', { to: '6.1.0', debug: true })
 
     expect(diff.log).toMatchInlineSnapshot(`
