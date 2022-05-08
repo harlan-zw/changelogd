@@ -30,7 +30,7 @@ jobs:
         run: pnpm run build
 
       - name: Publish to NPM
-        run: pnpm -r publish --access public --no-git-checks && echo ${{secrets.NPM_TOKEN}} && pnpm whoami
+        run: pnpm -r publish --access public --no-git-checks && pnpm whoami
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
