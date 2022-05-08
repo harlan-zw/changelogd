@@ -1,5 +1,5 @@
 {
-  "name": "changelogd-monorepo",
+  "name": "@changelogd/monorepo",
   "version": "0.0.6",
   "private": true,
   "packageManager": "pnpm@7.0.0",
