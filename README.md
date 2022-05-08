@@ -52,6 +52,16 @@ npx changelogd@latest <package> --from=<version> [--to=<version>]
 npx changelogd@latest @antfu/eslint-config --from 0.20.0
 ```
 
+## Node Usage
+
+```ts
+import { changelogd } from '@changelogd/core'
+
+const fetchChangelogs = async () => {
+  const res = await changelogd('@antfu/eslint-config', '0.20.0')
+  return res.log
+}
+```
 
 ## Sponsors
 
