@@ -63,7 +63,7 @@ npx changelogd@latest consola --from 2.13.0
 **Fetching Github Releases**
 
 ```sh
-npx changelogd@latest nuxt-windicss --from 2.13.0
+npx changelogd@latest nuxt-windicss --from 2.3.0
 ```
 
 
@@ -73,7 +73,7 @@ npx changelogd@latest nuxt-windicss --from 2.13.0
 import { changelogd } from '@changelogd/core'
 
 const fetchChangelogs = async () => {
-  const res = await changelogd('@antfu/eslint-config', '0.20.0')
+  const res = await changelogd('nuxt-windicss', '2.3.0')
   return res.log
 }
 ```
