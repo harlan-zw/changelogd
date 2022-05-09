@@ -1,7 +1,6 @@
 import { $fetch } from 'ohmyfetch'
 import { vendorChangelogs } from './meta'
 import { cached } from './util'
-import type { Config } from './index'
 
 export type PkgJsonRepository = string | {
   type?: 'git'
@@ -26,22 +25,15 @@ export async function fetchNpmFile<T = string>(pkgName: string, file: string, ve
   )
 }
 
-export async function fetchNpmChangelogDiff(pkgName: string, fromVersion: string, config: Config): Promise<string[] | false> {
+export async function fetchNpmChangelogDiff(pkgName: string, fromVersion: string, toVersion: string): Promise<string[] | false> {
   const changeLogFile = vendorChangelogs[pkgName] ?? 'CHANGELOG.md'
   const [curr, next] = await Promise.all([
     fetchNpmFile(pkgName, changeLogFile, fromVersion),
-    fetchNpmFile(pkgName, changeLogFile, config.to),
+    fetchNpmFile(pkgName, changeLogFile, toVersion),
   ])
 
-  if (!curr) {
-    config.logger.debug(`Failed to find ${pkgName}@${fromVersion}/CHANGELOG.md.`)
+  if (!curr || !next)
     return false
-  }
-
-  if (!next) {
-    config.logger.debug(`Failed to find ${pkgName}@${config.to}/CHANGELOG.md.`)
-    return false
-  }
 
   return [curr, next]
 }

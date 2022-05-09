@@ -66,7 +66,7 @@ export async function changelogd(pkgName: string, fromV: string, config: Partial
     }
     logger.debug('Fetching npm changes')
     // prefer npm package as github as api limits
-    const res = await fetchNpmChangelogDiff(pkgName, from, config as Config)
+    const res = await fetchNpmChangelogDiff(pkgName, from, to)
     if (res !== false) {
       ctx.provider = 'npm'
       const [currChangelog, nextChangelog] = res
@@ -113,7 +113,7 @@ export async function changelogd(pkgName: string, fromV: string, config: Partial
       }
 
       // just fetch straight from gh
-      const githubReleases = await fetchGithubReleasesFromTag(githubUrl, from, config as Config)
+      const githubReleases = await fetchGithubReleasesFromTag(githubUrl, from, to)
       ctx.provider = 'github-releases'
       ctx.meta = githubReleases
       ctx.log = formatGithubReleases(githubReleases)

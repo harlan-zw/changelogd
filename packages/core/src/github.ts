@@ -1,6 +1,5 @@
 import { $fetch } from 'ohmyfetch'
 import { cached } from './util'
-import type { Config } from './index'
 
 export async function fetchGithubReleases(repo: string) {
   return await cached<GithubRelease[]>(`github/${repo}/releases.json`, () => $fetch(
@@ -27,7 +26,7 @@ export function formatGithubReleases(release: any[]) {
     .join('\n\n')
 }
 
-export async function fetchGithubReleasesFromTag(repo: string, fromTag: string, config: Config) {
+export async function fetchGithubReleasesFromTag(repo: string, fromTag: string, toTag: string) {
   const { coerce, lt } = await import('semver')
   // iterate through releases until we have one that matches the current tag
   const releases = await fetchGithubReleases(repo)
@@ -43,7 +42,7 @@ export async function fetchGithubReleasesFromTag(repo: string, fromTag: string, 
     if (tagName === fromTag || lt(tagName, fromTag))
       break
 
-    if (lt(config.to, tagName))
+    if (lt(toTag, tagName))
       continue
     relevant.push(r)
   }
