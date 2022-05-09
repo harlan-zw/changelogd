@@ -16,6 +16,9 @@ async function main() {
 
   const logger = consola.create({ stdout: process.stderr }).withScope('changelogd')
 
+  if (args.debug)
+    logger.level = 5
+
   const res = await changelogd(pkgName, from, { ...args, logger })
 
   consola.log(`\n\n${res.log}\n\n`)
