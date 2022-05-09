@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
 import { fetchGithubReleasesFromTag, formatGithubReleases } from '@changelogd/core'
-import consola from 'consola'
 
 describe('fetch github changelog', () => {
   it('can pull explicit range ', async () => {
