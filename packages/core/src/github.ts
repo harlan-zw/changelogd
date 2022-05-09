@@ -23,7 +23,7 @@ export function fetchGithubFile(repo: string, tag: string, file: string) {
 
 export function formatGithubReleases(release: any[]) {
   return release
-    .map(({ tag, body }) => `${tag}\n\n${body}`)
+    .map(({ tag, body }) => `${tag}\n\n${body}\n\n---------------\n`)
     .join('\n\n')
 }
 
