@@ -18,8 +18,13 @@ export interface Config {
 }
 
 export async function changelogd(pkgName: string, fromV: string, config: Partial<Config> = {}): Promise<Changelogd> {
+  const { coerce } = await import('semver')
+
   if (!config.to)
     config.to = 'latest'
+
+  fromV = coerce(fromV)?.version || fromV
+  config.to = coerce(config.to)?.version || config.to
 
   if (!config.logger)
     config.logger = dummyLogger() as unknown as typeof consola
