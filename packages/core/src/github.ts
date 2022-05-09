@@ -1,4 +1,5 @@
 import { $fetch } from 'ohmyfetch'
+import { interopDefault } from 'mlly'
 import { cached } from './util'
 
 export async function fetchGithubReleases(repo: string) {
@@ -27,7 +28,8 @@ export function formatGithubReleases(release: any[]) {
 }
 
 export async function fetchGithubReleasesFromTag(repo: string, fromTag: string, toTag: string) {
-  const { coerce, lt } = await import('semver')
+  const { coerce, lt } = interopDefault(await import('semver'))
+
   // iterate through releases until we have one that matches the current tag
   const releases = await fetchGithubReleases(repo)
 

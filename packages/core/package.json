@@ -46,6 +46,7 @@
   "dependencies": {
     "consola": "^2.15.3",
     "diff": "^5.0.0",
+    "mlly": "^0.5.2",
     "ohmyfetch": "^0.4.16",
     "semver": "^7.3.7",
     "unstorage": "^0.4.1"

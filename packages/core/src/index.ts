@@ -1,4 +1,5 @@
 import type consola from 'consola'
+import { interopDefault } from 'mlly'
 import { fetchNpmChangelogDiff, fetchPackageJson } from './npm'
 import { fetchGithubFile, fetchGithubReleasesFromTag, formatGithubReleases } from './github'
 import { diffConcatAdded, dummyLogger } from './util'
@@ -18,7 +19,7 @@ export interface Config {
 }
 
 export async function changelogd(pkgName: string, fromV: string, config: Partial<Config> = {}): Promise<Changelogd> {
-  const { coerce } = await import('semver')
+  const { coerce } = interopDefault(await import('semver'))
 
   if (!config.to)
     config.to = 'latest'

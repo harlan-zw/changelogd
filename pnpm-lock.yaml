@@ -52,12 +52,14 @@ importers:
       '@types/semver': ^7.3.9
       consola: ^2.15.3
       diff: ^5.0.0
+      mlly: ^0.5.2
       ohmyfetch: ^0.4.16
       semver: ^7.3.7
       unstorage: ^0.4.1
     dependencies:
       consola: 2.15.3
       diff: 5.0.0
+      mlly: 0.5.2
       ohmyfetch: 0.4.16
       semver: 7.3.7
       unstorage: 0.4.1
@@ -2656,7 +2658,6 @@ packages:
 
   /jsonc-parser/3.0.0:
     resolution: {integrity: sha512-fQzRfAbIBnR0IQvftw9FJveWiHp72Fg20giDrHz6TdfB12UH/uue0D3hm57UB5KgAVuniLMCaS8P1IMj9NR7cA==}
-    dev: true
 
   /jsonfile/6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
@@ -2893,14 +2894,12 @@ packages:
 
   /mlly/0.3.16:
     resolution: {integrity: sha512-DVydmuR8fmiMetH39kp8VXYslN0XDh+OxULuU/ov8TMwVIxDGQ8PsJIrNi6cZZaHiIYL6wtO6+sjGpVc7msKUg==}
-    dev: true
 
   /mlly/0.5.2:
     resolution: {integrity: sha512-4GTELSSErv6ZZJYU98fZNuIBJcXSz+ktHdRrCYEqU1m6ZlebOCG0jwZ+IEd9vOrbpYsVBBMC5OTrEyLnKRcauQ==}
     dependencies:
       pathe: 0.2.0
       pkg-types: 0.3.2
-    dev: true
 
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -3180,7 +3179,6 @@ packages:
 
   /pathe/0.2.0:
     resolution: {integrity: sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==}
-    dev: true
 
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
@@ -3200,7 +3198,6 @@ packages:
       jsonc-parser: 3.0.0
       mlly: 0.3.16
       pathe: 0.2.0
-    dev: true
 
   /pluralize/8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}
