@@ -4,11 +4,7 @@ import consola from 'consola'
 
 describe('fetch github changelog', () => {
   it('can pull explicit range ', async () => {
-    const diff = await fetchGithubReleasesFromTag('windicss/nuxt-windicss', 'v2.2.0', {
-      to: 'v2.2.5',
-      logger: consola,
-      debug: false,
-    })
+    const diff = await fetchGithubReleasesFromTag('windicss/nuxt-windicss', 'v2.2.0', 'v2.2.5')
 
     expect(diff).toMatchInlineSnapshot(`
       [
@@ -64,10 +60,16 @@ describe('fetch github changelog', () => {
       ### Bug fixes
       Did some stuff
 
+      ---------------
+
+
       v2.2.4
 
       ### Bug fixes
-      Did some stuff"
+      Did some stuff
+
+      ---------------
+      "
     `)
   })
 })
