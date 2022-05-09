@@ -48,9 +48,24 @@ npx changelogd@latest <package> --from=<version> [--to=<version>]
 
 ### Example
 
+**Fetching CHANGELOG.md from Github**
+
 ```sh
-npx changelogd@latest @antfu/eslint-config --from 0.20.0
+npx changelogd@latest ohmyfetch --from 0.4.0
 ```
+
+**Fetching CHANGELOG.md from NPM**
+
+```sh
+npx changelogd@latest consola --from 2.13.0
+```
+
+**Fetching Github Releases**
+
+```sh
+npx changelogd@latest nuxt-windicss --from 2.13.0
+```
+
 
 ## Node Usage
 
