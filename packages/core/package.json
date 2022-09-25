@@ -4,29 +4,30 @@
   "version": "0.1.2",
   "packageManager": "pnpm@7.0.0",
   "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/harlan-zw/changelogd#readme",
-  "bugs": {
-    "url": "https://github.com/harlan-zw/changelogd/issues"
-  },
-  "license": "MIT",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/harlan-zw",
+  "homepage": "https://github.com/harlan-zw/changelogd#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harlan-zw/changelogd.git",
     "directory": "packages/core"
   },
-  "funding": "https://github.com/sponsors/harlan-zw",
+  "bugs": {
+    "url": "https://github.com/harlan-zw/changelogd/issues"
+  },
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "typesVersions": {
     "*": {
       "*": [
@@ -38,7 +39,6 @@
   "files": [
     "dist"
   ],
-  "sideEffects": false,
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub"

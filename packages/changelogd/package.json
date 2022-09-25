@@ -4,26 +4,26 @@
   "version": "0.1.2",
   "packageManager": "pnpm@7.0.0",
   "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/harlan-zw/changelogd#readme",
-  "bugs": {
-    "url": "https://github.com/harlan-zw/changelogd/issues"
-  },
-  "license": "MIT",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/harlan-zw",
+  "homepage": "https://github.com/harlan-zw/changelogd#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harlan-zw/changelogd.git",
     "directory": "packages/changelogd"
   },
-  "funding": "https://github.com/sponsors/harlan-zw",
-  "files": [
-    "cli.mjs"
-  ],
+  "bugs": {
+    "url": "https://github.com/harlan-zw/changelogd/issues"
+  },
+  "keywords": [],
+  "sideEffects": false,
   "bin": {
     "changelogd": "cli.mjs"
   },
-  "sideEffects": false,
+  "files": [
+    "cli.mjs"
+  ],
   "dependencies": {
     "@changelogd/cli": "workspace:*",
     "@changelogd/core": "workspace:*"
