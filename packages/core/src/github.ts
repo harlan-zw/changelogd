@@ -1,6 +1,7 @@
 import { $fetch } from 'ohmyfetch'
 import { interopDefault } from 'mlly'
 import { cached } from './util'
+import type { PkgJson } from './npm'
 
 export async function fetchGithubReleases(repo: string) {
   return await cached<GithubRelease[]>(`github/${repo}/releases.json`, () => $fetch(
@@ -12,6 +13,21 @@ export async function fetchGithubReleases(repo: string) {
 export interface GithubRelease {
   tag_name: string
   body: string
+}
+
+export const resolveGithubPath = (pkg: PkgJson) => {
+  // if repo is provided
+  if (pkg.repository) {
+    if (typeof pkg.repository !== 'string' && pkg.repository.url)
+      return /.com\/(.*?)\.git/gm.exec(pkg.repository.url)?.[1] || pkg.repository.url
+  }
+  // as a backup we can try and infer the path if the author is in the scope
+  // for example @harlanzw/my-package -> harlanzw/my-package
+  if (/@.+\/.+/gm.test(pkg.name)) {
+    // remove @
+    return pkg.name.substring(1)
+  }
+  return false
 }
 
 export function fetchGithubFile(repo: string, tag: string, file: string) {

@@ -1,7 +1,7 @@
 import type consola from 'consola'
 import { interopDefault } from 'mlly'
 import { fetchNpmChangelogDiff, fetchPackageJson } from './npm'
-import { fetchGithubFile, fetchGithubReleasesFromTag, formatGithubReleases } from './github'
+import { fetchGithubFile, fetchGithubReleasesFromTag, formatGithubReleases, resolveGithubPath } from './github'
 import { diffConcatAdded, dummyLogger } from './util'
 import { standardVersionParser } from './standard-version'
 
@@ -78,22 +78,7 @@ export async function changelogd(pkgName: string, fromV: string, config: Partial
     }
     logger.debug('Failed to fetch npm changes')
 
-    const resolveGithubPath = () => {
-      // if repo is provided
-      if (pkg.repository) {
-        if (typeof pkg.repository !== 'string' && pkg.repository.url)
-          return /.com\/(.*?)\.git/gm.exec(pkg.repository.url)?.[1] || pkg.repository.url
-      }
-      // as a backup we can try and infer the path if the author is in the scope
-      // for example @harlanzw/my-package -> harlanzw/my-package
-      if (/@.+\/.+/gm.test(pkgName)) {
-        // remove @
-        return pkgName.substring(1)
-      }
-      return false
-    }
-
-    const githubUrl = resolveGithubPath()
+    const githubUrl = resolveGithubPath(pkg)
     // github url well could be invalid
     if (githubUrl) {
       // hope they have tags prefixed with v

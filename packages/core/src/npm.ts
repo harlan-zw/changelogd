@@ -9,6 +9,7 @@ export type PkgJsonRepository = string | {
 }
 
 export interface PkgJson {
+  name: string
   version: string
   repository?: PkgJsonRepository
 }
