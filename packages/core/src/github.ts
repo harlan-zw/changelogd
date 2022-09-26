@@ -18,8 +18,13 @@ export interface GithubRelease {
 export const resolveGithubPath = (pkg: PkgJson) => {
   // if repo is provided
   if (pkg.repository) {
-    if (typeof pkg.repository !== 'string' && pkg.repository.url)
-      return /.com\/(.*?)\.git/gm.exec(pkg.repository.url)?.[1] || pkg.repository.url
+    if (typeof pkg.repository !== 'string' && pkg.repository.url) {
+      // e.g. git+https://github.com/unjs/unstorage.git
+      const repository = /.com\/(.*?)\.git/gm.exec(pkg.repository.url)?.[1] || pkg.repository.url
+      return repository
+        // e.g. https://github.com/algolia/vue-instantsearch
+        .replace('https://github.com/', '')
+    }
   }
   // as a backup we can try and infer the path if the author is in the scope
   // for example @harlanzw/my-package -> harlanzw/my-package
