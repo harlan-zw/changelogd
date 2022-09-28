@@ -28,7 +28,9 @@ export const resolveGithubUrlFromPackageJson = (pkg: PackageJson) => {
         // e.g. https://github.com/algolia/vue-instantsearch
         .replace('https://github.com/', '')
     }
-    return pkg.repository as string
+    return (pkg.repository as string)
+      // e.g. https://github.com/algolia/vue-instantsearch
+      .replace('https://github.com/', '')
   }
   // as a backup we can try and infer the path if the author is in the scope
   // for example @harlanzw/my-package -> harlanzw/my-package
@@ -82,7 +84,7 @@ export async function fetchGithubReleases(repo: string, options: GithubFetchOpti
 }
 
 export async function filterGithubReleasesForSemver(releases: RawGithubRelease[], fromTag: string, toTag: string):
-Promise<RawGithubRelease[]> {
+  Promise<RawGithubRelease[]> {
   const { coerce, lt } = interopDefault(await import('semver'))
 
   if (!releases)
