@@ -22,24 +22,28 @@ import { addedLinesDiff, standardVersionParser } from './changelog'
 
 export type Provider = 'github' | 'fs' | 'npm'
 
-type FetchFn<R> = (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => Promise<R>
+export type FetchFn<R> = (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => Promise<R>
 
-interface GithubReleasesResult {
+export interface GithubReleasesResult {
   url: string
   raw: RawGithubRelease[]
   resolved: string
 }
 
-interface Changelog {
+export interface Changelog {
   provider: Provider
   changelog: string
 }
 
-interface FetchChangelogDiffResult {
+export interface FetchChangelogDiffResult {
   raw: Changelog
   resolved: string
   standardVersion: ReturnType<typeof standardVersionParser>
 }
+
+export type FetchChangelogResult =
+  { provider: 'github-releases'; changelog: GithubReleasesResult } |
+  { provider: 'changelog-diff'; changelog: FetchChangelogDiffResult }
 
 export interface ChangelogdCtx {
   config: Config
@@ -50,10 +54,7 @@ export interface ChangelogdCtx {
   resolveChangelogFile: (name: string, version: string, options?: GithubFetchOptions) => Promise<Changelog>
   fetchChangelogFileDiff: FetchFn<FetchChangelogDiffResult>
   fetchGithubReleases: FetchFn<GithubReleasesResult>
-  fetchChangelog: FetchFn<
-    { provider: 'github-releases'; changelog: GithubReleasesResult } |
-    { provider: 'changelog-diff'; changelog: FetchChangelogDiffResult }
-  >
+  fetchChangelog: FetchFn<FetchChangelogResult>
 }
 
 export interface Config extends CachedFnOptions {
