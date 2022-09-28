@@ -1,6 +1,6 @@
 {
   "name": "changelogd",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "packageManager": "pnpm@7.0.0",
   "description": "Aggressively find a packages changelog (or releases) between versions.",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
