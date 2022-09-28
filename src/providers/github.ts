@@ -84,7 +84,7 @@ export async function fetchGithubReleases(repo: string, options: GithubFetchOpti
 }
 
 export async function filterGithubReleasesForSemver(releases: RawGithubRelease[], fromTag: string, toTag: string):
-  Promise<RawGithubRelease[]> {
+Promise<RawGithubRelease[]> {
   const { coerce, lt } = interopDefault(await import('semver'))
 
   if (!releases)
