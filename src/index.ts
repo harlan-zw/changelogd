@@ -152,7 +152,11 @@ export function createChangelogd(config: Partial<Config> = {}): ChangelogdCtx {
     },
     fetchGithubReleases: async (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => {
       options = { ...config, ...options }
-      const pkgJson = await ctx.resolvePackageJSON(name)
+
+      // resolve local package.json as the version may be fine
+      let pkgJson = await ctx.resolvePackageJSON(name)
+      if (pkgJson.version !== currentVersion)
+        pkgJson = await fetchUnpkgFile<PackageJson>(name, currentVersion, 'package.json', options)
 
       const githubUrl = resolveGithubUrlFromPackageJson(pkgJson)
       if (!githubUrl)

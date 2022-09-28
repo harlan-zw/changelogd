@@ -4,6 +4,466 @@ import { createChangelogd } from '../src'
 describe('fetch changelog', () => {
   const changelogd = createChangelogd()
 
+  it('nuxt', async () => {
+    const diff = await changelogd.fetchChangelog('nuxt', '2.14.6', '2.14.12')
+    expect(diff).toMatchInlineSnapshot(`
+      {
+        "changelog": {
+          "raw": [
+            {
+              "assets": [],
+              "assets_url": "https://api.github.com/repos/nuxt/nuxt.js/releases/35350188/assets",
+              "author": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/5158436?v=4",
+                "events_url": "https://api.github.com/users/pi0/events{/privacy}",
+                "followers_url": "https://api.github.com/users/pi0/followers",
+                "following_url": "https://api.github.com/users/pi0/following{/other_user}",
+                "gists_url": "https://api.github.com/users/pi0/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/pi0",
+                "id": 5158436,
+                "login": "pi0",
+                "node_id": "MDQ6VXNlcjUxNTg0MzY=",
+                "organizations_url": "https://api.github.com/users/pi0/orgs",
+                "received_events_url": "https://api.github.com/users/pi0/received_events",
+                "repos_url": "https://api.github.com/users/pi0/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/pi0/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/pi0/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/pi0",
+              },
+              "body": "### 🐛 Hot Fixes
+
+      - #8494 Fix issues with URL handling (resolves #8497, #8493, #8458, #8457)
+
+      ## How to upgrade?
+
+      Use \`yarn upgrade nuxt\` or \`npm up nuxt\`",
+              "created_at": "2020-12-16T13:15:19Z",
+              "draft": false,
+              "html_url": "https://github.com/nuxt/nuxt.js/releases/tag/v2.14.12",
+              "id": 35350188,
+              "name": "",
+              "node_id": "MDc6UmVsZWFzZTM1MzUwMTg4",
+              "prerelease": false,
+              "published_at": "2020-12-16T13:16:08Z",
+              "tag_name": "v2.14.12",
+              "tarball_url": "https://api.github.com/repos/nuxt/nuxt.js/tarball/v2.14.12",
+              "target_commitish": "dev",
+              "upload_url": "https://uploads.github.com/repos/nuxt/nuxt.js/releases/35350188/assets{?name,label}",
+              "url": "https://api.github.com/repos/nuxt/nuxt.js/releases/35350188",
+              "zipball_url": "https://api.github.com/repos/nuxt/nuxt.js/zipball/v2.14.12",
+            },
+            {
+              "assets": [],
+              "assets_url": "https://api.github.com/repos/nuxt/nuxt.js/releases/35071275/assets",
+              "author": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/5158436?v=4",
+                "events_url": "https://api.github.com/users/pi0/events{/privacy}",
+                "followers_url": "https://api.github.com/users/pi0/followers",
+                "following_url": "https://api.github.com/users/pi0/following{/other_user}",
+                "gists_url": "https://api.github.com/users/pi0/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/pi0",
+                "id": 5158436,
+                "login": "pi0",
+                "node_id": "MDQ6VXNlcjUxNTg0MzY=",
+                "organizations_url": "https://api.github.com/users/pi0/orgs",
+                "received_events_url": "https://api.github.com/users/pi0/received_events",
+                "repos_url": "https://api.github.com/users/pi0/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/pi0/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/pi0/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/pi0",
+              },
+              "body": "### 🐛 Hot Fixes
+
+      - #8462 Add url-polyfill to fix IE11 issue (URL is not a constructor) (resolves #8458)
+      - #8462 Update [ufo](https://github.com/nuxt-contrib/ufo) to preserve relative links (resolves #8457, #8459)",
+              "created_at": "2020-12-09T23:21:57Z",
+              "draft": false,
+              "html_url": "https://github.com/nuxt/nuxt.js/releases/tag/v2.14.11",
+              "id": 35071275,
+              "name": "",
+              "node_id": "MDc6UmVsZWFzZTM1MDcxMjc1",
+              "prerelease": false,
+              "published_at": "2020-12-09T23:23:28Z",
+              "tag_name": "v2.14.11",
+              "tarball_url": "https://api.github.com/repos/nuxt/nuxt.js/tarball/v2.14.11",
+              "target_commitish": "dev",
+              "upload_url": "https://uploads.github.com/repos/nuxt/nuxt.js/releases/35071275/assets{?name,label}",
+              "url": "https://api.github.com/repos/nuxt/nuxt.js/releases/35071275",
+              "zipball_url": "https://api.github.com/repos/nuxt/nuxt.js/zipball/v2.14.11",
+            },
+            {
+              "assets": [],
+              "assets_url": "https://api.github.com/repos/nuxt/nuxt.js/releases/34920635/assets",
+              "author": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/5158436?v=4",
+                "events_url": "https://api.github.com/users/pi0/events{/privacy}",
+                "followers_url": "https://api.github.com/users/pi0/followers",
+                "following_url": "https://api.github.com/users/pi0/following{/other_user}",
+                "gists_url": "https://api.github.com/users/pi0/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/pi0",
+                "id": 5158436,
+                "login": "pi0",
+                "node_id": "MDQ6VXNlcjUxNTg0MzY=",
+                "organizations_url": "https://api.github.com/users/pi0/orgs",
+                "received_events_url": "https://api.github.com/users/pi0/received_events",
+                "repos_url": "https://api.github.com/users/pi0/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/pi0/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/pi0/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/pi0",
+              },
+              "body": "### 🐛 Hot Fixes
+
+      - Normalize routes and decode resolved query (#8430) (resolves #8429, #8442)
+      - \`@nuxt/components\` v1.2.2 ([notes](https://github.com/nuxt/components/releases/tag/v1.2.1))",
+              "created_at": "2020-12-07T10:30:01Z",
+              "draft": false,
+              "html_url": "https://github.com/nuxt/nuxt.js/releases/tag/v2.14.10",
+              "id": 34920635,
+              "name": "",
+              "node_id": "MDc6UmVsZWFzZTM0OTIwNjM1",
+              "prerelease": false,
+              "published_at": "2020-12-07T10:30:51Z",
+              "tag_name": "v2.14.10",
+              "tarball_url": "https://api.github.com/repos/nuxt/nuxt.js/tarball/v2.14.10",
+              "target_commitish": "dev",
+              "upload_url": "https://uploads.github.com/repos/nuxt/nuxt.js/releases/34920635/assets{?name,label}",
+              "url": "https://api.github.com/repos/nuxt/nuxt.js/releases/34920635",
+              "zipball_url": "https://api.github.com/repos/nuxt/nuxt.js/zipball/v2.14.10",
+            },
+            {
+              "assets": [],
+              "assets_url": "https://api.github.com/repos/nuxt/nuxt.js/releases/34683338/assets",
+              "author": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/5158436?v=4",
+                "events_url": "https://api.github.com/users/pi0/events{/privacy}",
+                "followers_url": "https://api.github.com/users/pi0/followers",
+                "following_url": "https://api.github.com/users/pi0/following{/other_user}",
+                "gists_url": "https://api.github.com/users/pi0/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/pi0",
+                "id": 5158436,
+                "login": "pi0",
+                "node_id": "MDQ6VXNlcjUxNTg0MzY=",
+                "organizations_url": "https://api.github.com/users/pi0/orgs",
+                "received_events_url": "https://api.github.com/users/pi0/received_events",
+                "repos_url": "https://api.github.com/users/pi0/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/pi0/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/pi0/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/pi0",
+              },
+              "body": "###  🐛 Hot Fixes
+
+      - #8421 Only encode non dynamic path params",
+              "created_at": "2020-12-02T10:35:33Z",
+              "draft": false,
+              "html_url": "https://github.com/nuxt/nuxt.js/releases/tag/v2.14.9",
+              "id": 34683338,
+              "name": "",
+              "node_id": "MDc6UmVsZWFzZTM0NjgzMzM4",
+              "prerelease": false,
+              "published_at": "2020-12-02T10:36:12Z",
+              "tag_name": "v2.14.9",
+              "tarball_url": "https://api.github.com/repos/nuxt/nuxt.js/tarball/v2.14.9",
+              "target_commitish": "dev",
+              "upload_url": "https://uploads.github.com/repos/nuxt/nuxt.js/releases/34683338/assets{?name,label}",
+              "url": "https://api.github.com/repos/nuxt/nuxt.js/releases/34683338",
+              "zipball_url": "https://api.github.com/repos/nuxt/nuxt.js/zipball/v2.14.9",
+            },
+            {
+              "assets": [],
+              "assets_url": "https://api.github.com/repos/nuxt/nuxt.js/releases/34628312/assets",
+              "author": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/5158436?v=4",
+                "events_url": "https://api.github.com/users/pi0/events{/privacy}",
+                "followers_url": "https://api.github.com/users/pi0/followers",
+                "following_url": "https://api.github.com/users/pi0/following{/other_user}",
+                "gists_url": "https://api.github.com/users/pi0/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/pi0",
+                "id": 5158436,
+                "login": "pi0",
+                "node_id": "MDQ6VXNlcjUxNTg0MzY=",
+                "organizations_url": "https://api.github.com/users/pi0/orgs",
+                "received_events_url": "https://api.github.com/users/pi0/received_events",
+                "repos_url": "https://api.github.com/users/pi0/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/pi0/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/pi0/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/pi0",
+              },
+              "body": "### 🐛 Bug Fixes
+
+      - \`webpack\`
+        - #8205 Allow transpiling packages in nested \`node_modules\`
+      - \`general\`
+        - **#8325** Handle route encodings and update \`vue-router\`
+      - \`vue-router\`
+        - #8394 Force chidren to be required if default child is present (resolves #7823)
+      - \`cli\`
+        - #8398 Respect \`router.trailingSlash\` when serving static files (resolves #8350)
+        - #8337 Handle \`generate.cache.ignore\` as a function in \`ensureBuild\`
+      - \`generator\`
+        - #8237 Nested route missing trailingSlash (resolves #8165)
+        - #8344 Respect publicPath for static assets (resolves #7923, #7815)
+      - \`csp\`
+        - #8352 Apply right csp header when status code is 304 (resolves #8353)
+      - \`vue-app\`
+        - **#8314** Handle missing payloads on full static (resolves #7717)
+        - #8348 Warn if promises and functions are in fetch state (resolves #8338)
+        - #8225 TriggerScroll when transitions is disabled
+        - #8289 Use nuxt globalName correctly in \`nuxt-link\` and fetch mixin (resolves #8118)
+        - #8280 Prevent redirection loop with URI-encoded path (resolves #8116)
+      - \`types\`
+        - #8362 Correct vue.config types
+        - #8349 Add missing \`isFetching\` and nbFetching to \`NuxtApp\` interface
+        - #8319 \`NuxtOptionsHead\`  can be a function
+        - #8302 Add missing \`ssrContext\` and \`next\` typings to \`Context\` (resolves #8296)
+      - \`server\`
+        - #8313 Redirect if \`router.base\` specified in development
+
+      ### 💅 Refactors
+
+      - \`general\`
+        - #8210 Use nuxt everywhere
+      - \`cli\`
+        - #8219 Grammatical errors (resolves #8217)
+
+      ### 👓 Tests
+
+      - \`general\`
+        - #8282 Fix redirect tests
+
+      ### 💖 Thanks to
+
+      - Ahad Birang (@farnabaz)
+      - Audrius Jakumavicius (@aj-dev)
+      - Cain Hall (@cain)
+      - Daniel Roe (@danielroe)
+      - Mathieu TUDISCO (@mathieutu)
+      - Orkhan Alikhanov (@OrkhanAlikhanov)
+      - Steve Perkins (@steveperkins)
+      - @Zuckjet
+      - @padinko",
+              "created_at": "2020-12-01T11:06:52Z",
+              "draft": false,
+              "html_url": "https://github.com/nuxt/nuxt.js/releases/tag/v2.14.8",
+              "id": 34628312,
+              "name": "",
+              "node_id": "MDc6UmVsZWFzZTM0NjI4MzEy",
+              "prerelease": false,
+              "published_at": "2020-12-01T11:09:46Z",
+              "tag_name": "v2.14.8",
+              "tarball_url": "https://api.github.com/repos/nuxt/nuxt.js/tarball/v2.14.8",
+              "target_commitish": "dev",
+              "upload_url": "https://uploads.github.com/repos/nuxt/nuxt.js/releases/34628312/assets{?name,label}",
+              "url": "https://api.github.com/repos/nuxt/nuxt.js/releases/34628312",
+              "zipball_url": "https://api.github.com/repos/nuxt/nuxt.js/zipball/v2.14.8",
+            },
+            {
+              "assets": [],
+              "assets_url": "https://api.github.com/repos/nuxt/nuxt.js/releases/32631853/assets",
+              "author": {
+                "avatar_url": "https://avatars.githubusercontent.com/u/5158436?v=4",
+                "events_url": "https://api.github.com/users/pi0/events{/privacy}",
+                "followers_url": "https://api.github.com/users/pi0/followers",
+                "following_url": "https://api.github.com/users/pi0/following{/other_user}",
+                "gists_url": "https://api.github.com/users/pi0/gists{/gist_id}",
+                "gravatar_id": "",
+                "html_url": "https://github.com/pi0",
+                "id": 5158436,
+                "login": "pi0",
+                "node_id": "MDQ6VXNlcjUxNTg0MzY=",
+                "organizations_url": "https://api.github.com/users/pi0/orgs",
+                "received_events_url": "https://api.github.com/users/pi0/received_events",
+                "repos_url": "https://api.github.com/users/pi0/repos",
+                "site_admin": false,
+                "starred_url": "https://api.github.com/users/pi0/starred{/owner}{/repo}",
+                "subscriptions_url": "https://api.github.com/users/pi0/subscriptions",
+                "type": "User",
+                "url": "https://api.github.com/users/pi0",
+              },
+              "body": "### 🐛 Bug Fixes
+
+      - \`babel-preset-app\`
+        - #8203 Always transpile optional chaining and nullish-coalescing for server
+      - \`cli\`
+        - #8200 Rebuild if \`process.env\` changes in \`nuxt.config\`
+        - #8194 Avoid error about \`nuxt-edge\` if installed in parent \`node_modules\`
+        - #8134 Mode deprecation with explicit spa or universal flag
+      - \`vue-app\`
+        - #8170 Use getter to provide \`this.$nuxt\`
+        - #8055 ScrollRestoration hasn't set
+      - \`types\`
+        - #8182 Add type for \`serverMiddleware\` object format
+        - #8169 Make \`NuxtConfig\` an interface
+      - \`generator\`
+        - #8166 Handle when no \`routes.json\` defined
+      - \`general\`
+        - #8206 Add better logs for DX with target option
+
+      ### 💖 Thanks to
+
+      - Daniel Roe (@danielroe)
+      - Dmitriy (@Kolobok12309)",
+              "created_at": "2020-10-15T16:29:55Z",
+              "draft": false,
+              "html_url": "https://github.com/nuxt/nuxt.js/releases/tag/v2.14.7",
+              "id": 32631853,
+              "name": "",
+              "node_id": "MDc6UmVsZWFzZTMyNjMxODUz",
+              "prerelease": false,
+              "published_at": "2020-10-15T16:32:31Z",
+              "tag_name": "v2.14.7",
+              "tarball_url": "https://api.github.com/repos/nuxt/nuxt.js/tarball/v2.14.7",
+              "target_commitish": "dev",
+              "upload_url": "https://uploads.github.com/repos/nuxt/nuxt.js/releases/32631853/assets{?name,label}",
+              "url": "https://api.github.com/repos/nuxt/nuxt.js/releases/32631853",
+              "zipball_url": "https://api.github.com/repos/nuxt/nuxt.js/zipball/v2.14.7",
+            },
+          ],
+          "resolved": "v2.14.12
+
+      ### 🐛 Hot Fixes
+
+      - #8494 Fix issues with URL handling (resolves #8497, #8493, #8458, #8457)
+
+      ## How to upgrade?
+
+      Use \`yarn upgrade nuxt\` or \`npm up nuxt\`
+
+      ---------------
+
+      v2.14.11
+
+      ### 🐛 Hot Fixes
+
+      - #8462 Add url-polyfill to fix IE11 issue (URL is not a constructor) (resolves #8458)
+      - #8462 Update [ufo](https://github.com/nuxt-contrib/ufo) to preserve relative links (resolves #8457, #8459)
+
+      ---------------
+
+      v2.14.10
+
+      ### 🐛 Hot Fixes
+
+      - Normalize routes and decode resolved query (#8430) (resolves #8429, #8442)
+      - \`@nuxt/components\` v1.2.2 ([notes](https://github.com/nuxt/components/releases/tag/v1.2.1))
+
+      ---------------
+
+      v2.14.9
+
+      ###  🐛 Hot Fixes
+
+      - #8421 Only encode non dynamic path params
+
+      ---------------
+
+      v2.14.8
+
+      ### 🐛 Bug Fixes
+
+      - \`webpack\`
+        - #8205 Allow transpiling packages in nested \`node_modules\`
+      - \`general\`
+        - **#8325** Handle route encodings and update \`vue-router\`
+      - \`vue-router\`
+        - #8394 Force chidren to be required if default child is present (resolves #7823)
+      - \`cli\`
+        - #8398 Respect \`router.trailingSlash\` when serving static files (resolves #8350)
+        - #8337 Handle \`generate.cache.ignore\` as a function in \`ensureBuild\`
+      - \`generator\`
+        - #8237 Nested route missing trailingSlash (resolves #8165)
+        - #8344 Respect publicPath for static assets (resolves #7923, #7815)
+      - \`csp\`
+        - #8352 Apply right csp header when status code is 304 (resolves #8353)
+      - \`vue-app\`
+        - **#8314** Handle missing payloads on full static (resolves #7717)
+        - #8348 Warn if promises and functions are in fetch state (resolves #8338)
+        - #8225 TriggerScroll when transitions is disabled
+        - #8289 Use nuxt globalName correctly in \`nuxt-link\` and fetch mixin (resolves #8118)
+        - #8280 Prevent redirection loop with URI-encoded path (resolves #8116)
+      - \`types\`
+        - #8362 Correct vue.config types
+        - #8349 Add missing \`isFetching\` and nbFetching to \`NuxtApp\` interface
+        - #8319 \`NuxtOptionsHead\`  can be a function
+        - #8302 Add missing \`ssrContext\` and \`next\` typings to \`Context\` (resolves #8296)
+      - \`server\`
+        - #8313 Redirect if \`router.base\` specified in development
+
+      ### 💅 Refactors
+
+      - \`general\`
+        - #8210 Use nuxt everywhere
+      - \`cli\`
+        - #8219 Grammatical errors (resolves #8217)
+
+      ### 👓 Tests
+
+      - \`general\`
+        - #8282 Fix redirect tests
+
+      ### 💖 Thanks to
+
+      - Ahad Birang (@farnabaz)
+      - Audrius Jakumavicius (@aj-dev)
+      - Cain Hall (@cain)
+      - Daniel Roe (@danielroe)
+      - Mathieu TUDISCO (@mathieutu)
+      - Orkhan Alikhanov (@OrkhanAlikhanov)
+      - Steve Perkins (@steveperkins)
+      - @Zuckjet
+      - @padinko
+
+      ---------------
+
+      v2.14.7
+
+      ### 🐛 Bug Fixes
+
+      - \`babel-preset-app\`
+        - #8203 Always transpile optional chaining and nullish-coalescing for server
+      - \`cli\`
+        - #8200 Rebuild if \`process.env\` changes in \`nuxt.config\`
+        - #8194 Avoid error about \`nuxt-edge\` if installed in parent \`node_modules\`
+        - #8134 Mode deprecation with explicit spa or universal flag
+      - \`vue-app\`
+        - #8170 Use getter to provide \`this.$nuxt\`
+        - #8055 ScrollRestoration hasn't set
+      - \`types\`
+        - #8182 Add type for \`serverMiddleware\` object format
+        - #8169 Make \`NuxtConfig\` an interface
+      - \`generator\`
+        - #8166 Handle when no \`routes.json\` defined
+      - \`general\`
+        - #8206 Add better logs for DX with target option
+
+      ### 💖 Thanks to
+
+      - Daniel Roe (@danielroe)
+      - Dmitriy (@Kolobok12309)
+
+      ---------------
+      ",
+          "url": "nuxt/nuxt.js",
+        },
+        "provider": "github-releases",
+      }
+    `)
+  })
+
   it('consola - up to date', async () => {
     const diff = await changelogd.fetchChangelog('consola', '2.15.0', '2.15.0')
 
