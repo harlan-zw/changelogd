@@ -2,15 +2,6 @@
   "name": "changelogd",
   "version": "0.2.0",
   "packageManager": "pnpm@7.0.0",
-  "scripts": {
-    "cli": "jiti ./packages/cli/src/index.ts",
-    "build": "unbuild .",
-    "dev": "unbuild . --stub",
-    "lint": "eslint . --fix",
-    "lint:check": "eslint .",
-    "release": "bumpp package.json packages/*/package.json --commit --push --tag",
-    "test": "vitest"
-  },
   "description": "Aggressively find a packages changelog (or releases) between versions.",
   "author": "Harlan Wilton <harlan@harlanzw.com>",
   "license": "MIT",
@@ -31,7 +22,6 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "bin": "./dist/cli.mjs",
   "typesVersions": {
     "*": {
       "*": [
@@ -39,6 +29,16 @@
         "./dist/index.d.ts"
       ]
     }
+  },
+  "bin": "./dist/cli.mjs",
+  "scripts": {
+    "cli": "jiti ./packages/cli/src/index.ts",
+    "build": "unbuild .",
+    "dev": "unbuild . --stub",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
+    "release": "bumpp package.json packages/*/package.json --commit --push --tag",
+    "test": "vitest"
   },
   "dependencies": {
     "consola": "^2.15.3",

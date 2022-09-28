@@ -50,7 +50,6 @@ const res = await changelogd.fetchChangelog('nuxt-windicss', '2.3.0', '2.4.0')
 
 ```ts
 export interface Config {
-  key?: string
   force?: boolean
   ttl?: number
   storage?: Storage
@@ -65,11 +64,11 @@ export interface ChangelogdCtx {
   resolveLocalChangelog: (id: string, opts?: ResolveOptions) => Promise<string>
   resolvePackageJSON: (id: string) => Promise<PackageJson>
   resolveChangelogFile: (name: string, version: string, options?: GithubFetchOptions) => Promise<Changelog>
-  
-  fetchChangelogFileDiff:  (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => Promise<FetchChangelogDiffResult>
-  fetchGithubReleases:  (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => Promise<GithubReleasesResult>
-  
-  fetchChangelog:  (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => Promise<
+
+  fetchChangelogFileDiff: (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => Promise<FetchChangelogDiffResult>
+  fetchGithubReleases: (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => Promise<GithubReleasesResult>
+
+  fetchChangelog: (name: string, currentVersion: string, targetVersion: string, options?: GithubFetchOptions) => Promise<
     { provider: 'github-releases'; changelog: GithubReleasesResult } |
     { provider: 'changelog-diff'; changelog: FetchChangelogDiffResult }
   >
