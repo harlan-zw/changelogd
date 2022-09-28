@@ -1,11 +1,13 @@
 import { describe, expect, it } from 'vitest'
-import { fetchNpmChangelogDiff } from '@changelogd/core'
+import { createChangelogd, fetchNpmChangelogDiff } from '@changelogd/core'
+
+// @todo re-implement
 
 describe('fetch npm changelog', () => {
   it('can successfully pull specified changelog.md', async () => {
-    const diff = await fetchNpmChangelogDiff('consola', '2.15.0', 'latest')
+    const diff = await createChangelogd({ name: 'consola', version: '2.15.0' }, 'latest')
 
-    expect(diff).toMatchInlineSnapshot(`
+    expect(diff.npmChangelogDiff()).toMatchInlineSnapshot(`
       [
         "# Changelog
 

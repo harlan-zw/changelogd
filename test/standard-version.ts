@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
-import { fetchNpmFile, standardVersionParser } from '@changelogd/core'
+import { standardVersionParser } from '../src'
+
+// @todo re-implement
 
 describe('standard-version', () => {
   it('can successfully pull specified changelog.md', async () => {

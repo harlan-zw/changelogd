@@ -1,11 +1,11 @@
 import { createStorage } from 'unstorage'
 import fsDriver from 'unstorage/drivers/fs'
 
-export function createCache() {
+export function createCache(dir?: string) {
   return createStorage({
     driver: fsDriver(
       {
-        base: './node_modules/.changelogd',
+        base: dir,
       },
     ),
   })

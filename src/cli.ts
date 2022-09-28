@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 import consola from 'consola'
 import mri from 'mri'
-import { changelogd } from '@changelogd/core'
+import { createChangelogd } from './'
 
 async function main() {
   const args = mri(process.argv.splice(2))
   const pkgName = args._[0]
   const from = args.from
+  const to = args.to || 'latest'
 
   if (!pkgName)
     throw new Error('You must provide a package name.')
@@ -19,9 +20,14 @@ async function main() {
   if (args.debug)
     logger.level = 5
 
-  const res = await changelogd(pkgName, from, { ...args, logger })
-
-  consola.log(`\n\n${res.log}\n\n`)
+  const changelogd = await createChangelogd()
+  try {
+    const changelog = await changelogd.fetchChangelog(pkgName, from, to)
+    consola.log(`\n\n${changelog.changelog.resolved}\n\n`)
+  }
+  catch (e) {
+    consola.error(e)
+  }
 }
 
 main().catch(consola.error)

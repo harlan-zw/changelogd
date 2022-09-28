@@ -1,3 +1,12 @@
+import { diffLines } from 'diff'
+
+export function addedLinesDiff(a: string, b: string): string {
+  return diffLines(a, b)
+    .filter(n => n.added)
+    .map(n => n.value.trim())
+    .join('')
+}
+
 export function standardVersionParser(changelog: string) {
   const partials = changelog.split(/(?=^#+ \[.*?])/gm)
   partials.shift()
